@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html>
+<!--
+    此版本(F-1.0.14:0120:H)的更新 {
+        1.语言系统
+        2.简体中文
+        3.繁体中文
+        4.英文
+        5.火星文
+        6.解决了高度显示异常
+        7.下标和上标
+        8.注释嘲讽
+        9.消息框
+        10.随屏幕移动的menu
+        11.CCPIRA的logo
+        12.CCPIRA的logo可隐藏了
+        13.隐藏菜单按钮和浅色选项间隔大了
+        14.有logo了
+    }
+    如需了解历史更新，请查看<head>
+-->
+<script>
+    edition = "F-1.0.14:0120:H"
+</script>
+
+<head>
+    <!--
+        关于版本号：
+        开头如果是T则意味着这是测试版本，还没写好的半成品；
+        如果是F则意味着这是正式版本，是对外发布的版本。
+        短线后面的C.D.E分别代表这是第C代程序中的第D个版本，包含E处改进。
+        有小更新则E++；
+        有大更新的或公开实验版本则D++；
+        巨大更新则C++。
+        再后面的字母意味着这个版本使用的生成方式，
+        H代表"海星方程变换一式"；
+        S代表"混沌·神之胡乱构造之术"。
+
+        历史更新：
+        2020年11月29日的更新 {
+            版本号：F-1.0.0:1129:H
+            1.方程程序主体
+        }
+    -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>豪华方程生成器 -|简·陋|</title>
+    <link rel="icon" type="image/x-icon" href="../black-favicon.ico" id="fav" />
+    <script type="text/javascript">
+        function cmain(a) {
+            lor = a.substring(0, 1);
+            var zfs = a.length;
+            for (sc = 0; sc < zfs; sc++) { if (a.substring(sc, sc + 1) == "-") { br = sc; } }
+            mainmath = a.substring(1, br);
+            mainmath = parseInt(mainmath);
+            mainmath1 = mainmath + 1
+            for (sca = 0; document.getElementById(lor + mainmath1 + "-" + sca); sca++) {
+                cutmath = sca + 1;
+            }
+            cutmath = sca + 1;
+            newdiv = lor + mainmath1 + "-" + cutmath;
+        }
+        function shotorlong(n) {
+            fu = 0;
+            for (sc = 0; sc < n.length; sc++) {
+                if (n.substring(sc, sc + 1) == "+") {
+                    return 1;
+                } else if (n.substring(sc, sc + 1) == "-") {
+                    fu++;
+                }
+            }
+            if (fu >= 2) {
+                return 1;
+            }
+        }
+        function plus(a, b) {
+            if (a.substring(0, 1) == "a" || a.substring(0, 1) == "b") {
+                cmain(a);
+                abss = 1;
+                text = document.getElementById(a).innerText;
+                for (sc = text.length; !isNaN(text.substring(sc - 1, sc)) || text.substring(sc - 1, sc) == "-" || text.substring(sc - 1, sc) == "+"; sc--) {
+                    if (sc == 0) break;
+                }
+                jcsa = text.substring(sc, text.length);
+                if (jcsa.substring(0, 1) == "+") {
+                    jcsa = jcsa.substring(1, jcsa.length);
+                }
+                if (!isNaN(jcsa)) {
+                    jcsa = parseInt(jcsa);
+                }
+            } else {
+                abss = 0;
+                text = a;
+                for (sc = text.length; !isNaN(text.substring(sc - 1, sc)) || text.substring(sc - 1, sc) == "-" || text.substring(sc - 1, sc) == "+"; sc--) {
+                    if (sc == 0) break;
+                }
+                jcsa = text.substring(sc, text.length);
+                if (jcsa.substring(0, 1) == "+") {
+                    jcsa = jcsa.substring(1, jcsa.length);
+                }
+                if (!isNaN(jcsa)) {
+                    jcsa = parseInt(jcsa);
+                }
+            }
+            if (b.substring(0, 1) == "a" || b.substring(0, 1) == "b") {
+                cmain(b);
+                bbss = 1;
+                text = document.getElementById(b).outerText;
+                for (sc = 0; !isNaN(text.substring(sc, sc + 1)) || text.substring(sc, sc + 1) == "-" || text.substring(sc - 1, sc) == "+"; sc++) {
+                    if (text.substring(sc, sc + 1) == "") break;
+                    console.log(text.substring(sc, sc + 1));
+                }
+                jcsb = text.substring(0, sc);
+                if (jcsb.substring(0, 1) == "+") {
+                    jcsb = jcsb.substring(1, jcsb.length);
+                }
+                if (!isNaN(jcsb)) {
+                    jcsb = parseInt(jcsb);
+                }
+            } else {
+                bbss = 0;
+                text = b;
+                for (sc = 0; !isNaN(text.substring(sc, sc + 1)) || text.substring(sc, sc + 1) == "-" || text.substring(sc - 1, sc) == "+"; sc++) {
+                    if (text.substring(sc, sc + 1) == "") break;
+                    console.log(text.substring(sc, sc + 1));
+                }
+                jcsb = text.substring(0, sc)
+                if (jcsb.substring(0, 1) == "+") {
+                    jcsb = jcsb.substring(1, jcsb.length);
+                }
+                if (!isNaN(jcsb)) {
+                    jcsb = parseInt(jcsb);
+                }
+            }
+            if (lor == "a") {
+                lor = "left";
+            } else {
+                lor = "right";
+            }
+            if (!isNaN(jcsa) && !isNaN(jcsb)) {
+                if (abss) {
+                    if (bbss) {
+                        var outer = document.getElementById(a).outerText;
+                        if (shotorlong(outer)) {
+                            if (jcsa > 0) {
+                                jcsa = String(jcsa);
+                                headinn = outer.substring(0, outer.length - 1 - jcsa.length);
+                            } else {
+                                jcsa = String(jcsa);
+                                headinn = outer.substring(0, outer.length - jcsa.length);
+                            }
+                        } else {
+                            headinn = "";
+                        }
+                        jcsa = parseInt(jcsa);
+                        var bodyinn = jcsa + jcsb;
+                        bodyinn = String(bodyinn);
+                        if (bodyinn.substring(0, 1) != "-") {
+                            document.getElementById(b).innerHTML = headinn + "+" + bodyinn;
+                        } else {
+                            document.getElementById(a).innerHTML = headinn + bodyinn;
+                        }
+                        var outer = document.getElementById(b).outerText;
+                        if (shotorlong(outer)) {
+                            if (outer.substring(0, 1) == "+") {
+                                jcsb = String(jcsb);
+                                outer = outer.substring(1 + jcsb.length, outer.length);
+                            } else {
+                                jcsb = String(jcsb);
+                                outer = outer.substring(jcsb.length, outer.length);
+                            }
+                        } else {
+                            outer = "";
+                        }
+                        if (outer.substring(0, 1) != "-") {
+                            document.getElementById(b).innerHTML = headinn + "+" + bodyinn + outer;
+                        }
+                        document.getElementById(b).innerHTML = outer;
+                        var div = document.createElement("a");
+                        document.getElementById(lor).appendChild(div);
+                        div.id = newdiv;
+                        document.getElementById(newdiv).appendChild(document.getElementById(a));
+                        document.getElementById(newdiv).appendChild(document.getElementById(b));
+                    } else {
+                        var outer = document.getElementById(a).outerText;
+                        if (shotorlong(outer)) {
+                            if (jcsa > 0) {
+                                jcsa = String(jcsa);
+                                headinn = outer.substring(0, outer.length - 1 - jcsa.length);
+                            } else {
+                                jcsa = String(jcsa);
+                                headinn = outer.substring(0, outer.length - jcsa.length);
+                            }
+                        } else {
+                            headinn = "";
+                        }
+                        jcsa = parseInt(jcsa);
+                        var bodyinn = jcsa + jcsb;
+                        var outer = b;
+                        if (shotorlong(String(outer))) {
+                            if (outer.substring(0, 1) == "+") {
+                                jcsb = String(jcsb);
+                                outer = outer.substring(1 + jcsb.length, outer.length);
+                            } else {
+                                jcsb = String(jcsb);
+                                outer = outer.substring(jcsb.length, outer.length);
+                            }
+                        } else {
+                            outer = "";
+                        }
+                        bodyinn = String(bodyinn);
+                        if (bodyinn.substring(0, 1) == "-" || headinn == "") {
+                            document.getElementById(a).innerHTML = headinn + bodyinn + outer;
+                        } else {
+                            document.getElementById(a).innerHTML = headinn + "+" + bodyinn + outer;
+                        }
+                        var div = document.createElement("a");
+                        document.getElementById(lor).appendChild(div);
+                        div.id = newdiv;
+                        document.getElementById(newdiv).appendChild(document.getElementById(a));
+                    }
+                } else {
+                    var outer = a;
+                    if (shotorlong(outer)) {
+                        if (jcsa > 0) {
+                            jcsa = String(jcsa);
+                            headinn = outer.substring(0, outer.length - 1 - jcsa.length);
+                        } else {
+                            jcsa = String(jcsa);
+                            headinn = outer.substring(0, outer.length - jcsa.length);
+                        }
+                    } else {
+                        headinn = "";
+                    }
+                    jcsa = parseInt(jcsa);
+                    var bodyinn = jcsa + jcsb;
+                    var outer = document.getElementById(b).outerText;
+                    if (shotorlong(outer)) {
+                        if (outer.substring(0, 1) == "+") {
+                            jcsb = String(jcsb);
+                            outer = outer.substring(1 + jcsb.length, outer.length);
+                        } else {
+                            jcsb = String(jcsb);
+                            outer = outer.substring(jcsb.length, outer.length);
+                        }
+                    } else {
+                        outer = "";
+                    }
+                    bodyinn = String(bodyinn);
+                    if (bodyinn.substring(0, 1) == "-" || headinn == "") {
+                        document.getElementById(b).innerHTML = headinn + bodyinn + outer;
+                    } else {
+                        document.getElementById(b).innerHTML = headinn + "+" + bodyinn + outer;
+                    }
+                    var div = document.createElement("a");
+                    document.getElementById(lor).appendChild(div);
+                    div.id = newdiv;
+                    document.getElementById(newdiv).appendChild(document.getElementById(b));
+                }
+            } else {
+                var div = document.createElement("a");
+                document.getElementById(lor).appendChild(div);
+                div.id = newdiv;
+                if (abss) {
+                    document.getElementById(newdiv).appendChild(document.getElementById(a));
+                } else {
+                    var ab = document.createElement("a");
+                    ab.innerHTML = a;
+                    document.getElementById(newdiv).appendChild(ab);
+                }
+                if (bbss) {
+                    if (document.getElementById(b).outerText.substring(0, 1) != "-") {
+                        var fuh = document.createElement("a");
+                        fuh.name = "pp";
+                        fuh.innerHTML = "+";
+                        document.getElementById(newdiv).appendChild(fuh);
+                    }
+                    document.getElementById(newdiv).appendChild(document.getElementById(b));
+                } else {
+                    if (b.substring(0, 1) != "-") {
+                        var fuh = document.createElement("a");
+                        fuh.name = "pp";
+                        fuh.innerHTML = "+";
+                        document.getElementById(newdiv).appendChild(fuh);
+                    }
+                    var bb = document.createElement("a");
+                    bb.innerHTML = b;
+                    document.getElementById(newdiv).appendChild(bb);
+                }
+            }
+        }
+        function division(a, b) {
+            var div = document.createElement("a");
+            cmain(a);
+        }
+        function fhmx1x2(hm) {
+            document.getElementById("thmx1x2").value = hm;
+        }
+        function getrandom(Min, Max) {
+            var Range = Max - Min;
+            var Rand = Math.random();
+            var a = Math.round(Rand * Range);
+            var num = a + Min;
+            return num;
+        }
+        function getadx1x2() {
+            var tof = document.getElementById("sfsetx").checked;
+            if (tof) {
+                minx = document.getElementById("getminx").value;
+                maxx = document.getElementById("getmaxx").value;
+                maxx = parseInt(maxx);
+                minx = parseInt(minx);
+                x1 = getrandom(minx, maxx);
+                x2 = getrandom(minx, maxx);
+                while (x1 == 0 || x2 == 0) {
+                    x1 = getrandom(minx, maxx);
+                    x2 = getrandom(minx, maxx);
+                }
+            } else {
+                x1 = document.getElementById("setx1").value;
+                x2 = document.getElementById("setx2").value;
+                if (x2 < x1) {
+                    aa = x2;
+                    x2 = x1;
+                    x1 = aa;
+                }
+            }
+        }
+        function getadfc() {
+            var tof = document.getElementById("sfsetc").checked;
+            if (tof) {
+                minc = document.getElementById("getminc").value;
+                maxc = document.getElementById("getmaxc").value;
+                maxc = parseInt(maxc);
+                minc = parseInt(minc);
+                fc = getrandom(minc, maxc);
+                while (fc < -1) {
+                    fc = getrandom(minc, maxc);
+                }
+            } else {
+                fc = document.getElementById("setc").value;
+            }
+        }
+        function getequation() {
+            cready();
+            document.getElementById("left" + hmx1x2).style.display = "none";
+            document.getElementById("right" + hmx1x2).style.display = "none";
+            document.getElementById("left" + needx[hneedx]).style.display = "none";
+            document.getElementById("right" + needx[hneedx]).style.display = "none";
+            hmx1x2 = hmx1x2 + 1;
+            if (!document.getElementById("right" + hmx1x2) || !document.getElementById("left" + hmx1x2)) {
+                var divl = document.createElement("div");
+                var divr = document.createElement("div");
+                divl.id = "left" + hmx1x2;
+                divr.id = "right" + hmx1x2;
+                divl.className = "left";
+                divr.className = "right";
+                document.getElementById("bleft").appendChild(divl);
+                document.getElementById("bright").appendChild(divr);
+            } else {
+                document.getElementById("right" + hmx1x2).innerHTML = ""
+                document.getElementById("left" + hmx1x2).innerHTML = ""
+                document.getElementById("left" + hmx1x2).style.display = "inline-block";
+                document.getElementById("right" + hmx1x2).style.display = "inline-block";
+            }
+            fhmx1x2(hmx1x2);
+            getadx1x2();
+            x1 = parseInt(x1);
+            x2 = parseInt(x2);
+            getadfc();
+            DQF = hmx1x2;
+            askx1[DQF] = x1;
+            askx2[DQF] = x2;
+            infoof[DQF] = new Array;
+            getmop();
+            var div1z = document.createElement("div");
+            var div2z = document.createElement("div");
+            div1z.id = "x2-" + hmx1x2;
+            div2z.id = "x1-" + hmx1x2;
+            if (fc == 0) {
+                div1z.innerHTML = 1;
+                div2z.innerHTML = 1;
+            } else {
+                div1z.innerHTML = "<div name='smain'>" + mop + "</div>";
+                div2z.innerHTML = "<div name='smain'>" + mop + "</div>";
+            }
+            div1z.setAttribute("name", "smain");
+            div2z.setAttribute("name", "smain");
+            document.getElementById("left" + hmx1x2).appendChild(div1z);
+            document.getElementById("right" + hmx1x2).appendChild(div2z);
+            var divhr1 = document.createElement("div");
+            divhr1.setAttribute("name", "smain");
+            divhr1.innerHTML = "<hr />";
+            divhr1.style.width = hrwidth;
+            document.getElementById("right" + hmx1x2).appendChild(divhr1);
+            var divhr2 = document.createElement("div");
+            divhr2.setAttribute("name", "smain");
+            divhr2.innerHTML = "<hr />";
+            divhr2.style.width = hrwidth;
+            document.getElementById("left" + hmx1x2).appendChild(divhr2);
+            getmop();
+            //ch=Math.round(Math.random());
+            var diva = document.createElement("div");
+            diva.id = "x3-" + hmx1x2;
+            diva.setAttribute("name", "smain");
+            document.getElementById("left" + hmx1x2).appendChild(diva);
+            /*现成的式子是不会给你的哈哈
+            就算你删了注释符号也没用，这东西是远古开发版本的产物，已经不能用了！哈哈哈哈
+            if (ch) {
+                var div1 = document.createElement("a");
+                if( x1 > 0 ) {
+                    div1.innerHTML = "(<a id=\"a0-0\">X</a><a name=\"ss\">-</a><a id=\"a0-1\">"+x1+"</a>)";
+                    div1.id="a1-0"
+                } else if( x1 < 0 ) {
+                    div1.innerHTML = "(<a id=\"a0-0\">X</a><a name=\"pp\">+</a><a id=\"a0-1\">"+Math.abs(x1)+"</a>)";
+                    div1.id="a1-0"
+                } else if( x1 == 0 ) {
+                    div1.innerHTML = "<a id=\"a0-0\">X</a>";
+                    div1.id="a1-0"
+                }
+                document.getElementById("a2-0").appendChild(div1);
+                var div2 = document.createElement("a");
+                if( x2 > 0 ) {
+                    div2.innerHTML = "(<a id=\"a0-2\">X</a><a name=\"ss\">-</a><a id=\"a0-3\">"+x2+"</a>)";
+                    div2.id="a1-1"
+                } else if( x2 < 0 ) {
+                    div2.innerHTML = "(<a id=\"a0-2\">X</a><a name=\"pp\">+</a><a id=\"a0-3\">"+Math.abs(x2)+"</a>)";
+                    div2.id="a1-1"
+                } else if( x2 == 0 ) {
+                    div2.innerHTML = "<a id=\"a0-2\">X</a>";
+                    div2.id="a1-1"
+                }
+                document.getElementById("a2-0").appendChild(div2);
+            } else {*/
+            var div1 = document.createElement("div");
+            div1.setAttribute("name", "smain");
+            div1.innerHTML = "X<sup>2</sup>";
+            document.getElementById("x3-" + hmx1x2).appendChild(div1);
+            var div2 = document.createElement("div");
+            div2.setAttribute("name", "smain");
+            var xh = x1 + x2;
+            var xh = xh * -1;
+            if (xh > 0) {
+                div2.innerHTML = "<a name=\"pp\">+</a>" + xh + "X";
+            } else if (xh < 0) {
+                div2.innerHTML = xh + "X";
+            }
+            document.getElementById("x3-" + hmx1x2).appendChild(div2);
+            var div3 = document.createElement("div");
+            div3.setAttribute("name", "smain");
+            var xx = x1 * x2 + mop;
+            if (xx > 0) {
+                div3.innerHTML = "<a name=\"pp\">+</a>" + xx;
+                document.getElementById("x3-" + hmx1x2).appendChild(div3);
+            } else if (xx < 0) {
+                div3.innerHTML = xx;
+                document.getElementById("x3-" + hmx1x2).appendChild(div3);
+            }
+            //}
+            var divb = document.createElement("div");
+            divb.innerHTML = "<div name='smain'>" + mop + "</div>"
+            divb.id = "x4-" + hmx1x2;
+            divb.setAttribute("name", "smain");
+            document.getElementById("right" + hmx1x2).appendChild(divb);
+            var divy = document.createElement("div");
+            divy.id = "ready" + hmx1x2;
+            divy.className = "ready";
+            divyinnx = ""
+            divyinnc = ""
+            for (i = 0; i < fc; i++) {
+                divyinnx = divyinnx + "<div id=\"xr" + hmx1x2 + "-" + i + "\" class=\"sready\"></div><div id=\"cr" + hmx1x2 + "-" + i + "\" class=\"sready\"></div>"
+            }
+            divy.innerHTML = divyinnx + divyinnc;
+            document.getElementById("bready").appendChild(divy);
+            if (HTXs == "ran") {
+                hmbs = ""
+            }
+            for (i = 0; i < fc; i++) {
+                document.getElementById("xr" + hmx1x2 + "-" + i).innerHTML = document.getElementById("left" + hmx1x2).innerHTML.replace(/id=".+?"/g, "");
+                document.getElementById("cr" + hmx1x2 + "-" + i).innerHTML = document.getElementById("right" + hmx1x2).innerHTML.replace(/id=".+?"/g, "");
+                var fcdivx = document.createElement("div");
+                var fcdivc = document.createElement("div");
+                if (HTXs == "ran") {
+                    var fcs = getrandom(0, i);
+                    fcdivx.innerHTML = document.getElementById("xr" + hmx1x2 + "-" + fcs).innerHTML;
+                    fcdivc.innerHTML = document.getElementById("cr" + hmx1x2 + "-" + fcs).innerHTML;
+                    hmbs = hmbs + " " + (fcs + 1);
+                } else if (HTXs == "min") {
+                    fcdivx.innerHTML = document.getElementById("xr" + hmx1x2 + "-0").innerHTML;
+                    fcdivc.innerHTML = document.getElementById("cr" + hmx1x2 + "-0").innerHTML;
+                    hmbs = "Min"
+                } else if (HTXs == "max") {
+                    fcdivx.innerHTML = document.getElementById("xr" + hmx1x2 + "-" + i).innerHTML;
+                    fcdivc.innerHTML = document.getElementById("cr" + hmx1x2 + "-" + i).innerHTML;
+                    hmbs = "Max"
+                }
+                ChQu();
+                if (SCm) {
+                    var fcdi21 = document.createElement("div");
+                    fcdi21.innerHTML = "<a style='font-size: 0.4cm' name='smain'>*</a>"
+                    var fcdi22 = document.createElement("div");
+                    fcdi22.innerHTML = "<a style='font-size: 0.4cm' name='smain'>*</a>"
+                    document.getElementById("x" + fxx + "-" + hmx1x2).appendChild(fcdi21);
+                    document.getElementById("x" + sxx + "-" + hmx1x2).appendChild(fcdi22);
+                } else {
+                    //document.getElementById("x" + fxx + "-" + hmx1x2).innerHTML=document.getElementById("x" + fxx + "-" + hmx1x2).innerHTML + "<br />";
+                    //document.getElementById("x" + sxx + "-" + hmx1x2).innerHTML=document.getElementById("x" + sxx + "-" + hmx1x2).innerHTML + "<br />";
+                    var fcdi21 = document.createElement("div");
+                    fcdi21.innerHTML = "<hr />"
+                    fcdi21.setAttribute("name", "smain");
+                    fcdi21.style.width = hrwidth;
+                    var fcdi22 = document.createElement("div");
+                    fcdi22.innerHTML = "<hr />"
+                    fcdi22.setAttribute("name", "smain");
+                    fcdi22.style.width = hrwidth;
+                    document.getElementById("x" + fxx + "-" + hmx1x2).appendChild(fcdi21);
+                    document.getElementById("x" + sxx + "-" + hmx1x2).appendChild(fcdi22);
+                    //document.getElementById("x" + fxx + "-" + hmx1x2).innerHTML=document.getElementById("x" + fxx + "-" + hmx1x2).innerHTML + "<br />";
+                    //document.getElementById("x" + sxx + "-" + hmx1x2).innerHTML=document.getElementById("x" + sxx + "-" + hmx1x2).innerHTML + "<br />";
+                }
+                fcdivx.setAttribute("name", "smain");
+                fcdivc.setAttribute("name", "smain");
+                document.getElementById("x" + fxx + "-" + hmx1x2).appendChild(fcdivx);
+                document.getElementById("x" + sxx + "-" + hmx1x2).appendChild(fcdivc);
+            }
+            infoof[hmx1x2]["x1"] = x1;
+            infoof[hmx1x2]["x2"] = x2;
+            infoof[hmx1x2]["fzd"] = fc;
+            infoof[hmx1x2]["ycs"] = hmbs;
+            console.log(x1 + "\n" + x2 + "\n" + fc + "\n" + hmbs);
+            /*document.getElementById("bready").style.display = "none";
+            document.getElementById("ready"+DQF).style.display = "none";
+            document.getElementById("ready"+needx[hneedx]).style.display = "none";*/
+            clean();
+            clean();
+        }
+        function ChQu() {
+            SCm = getrandom(0, 1);
+            if (SCm) {
+                switch (getrandom(0, 3)) {
+                    case 0:
+                        window.fxx = 2;
+                        window.sxx = 1;
+                        break;
+                    case 1:
+                        window.fxx = 4;
+                        window.sxx = 1;
+                        break;
+                    case 2:
+                        window.fxx = 2;
+                        window.sxx = 3;
+                        break;
+                    case 3:
+                        window.fxx = 4;
+                        window.sxx = 3;
+                        break;
+                }
+            } else {
+                switch (getrandom(0, 3)) {
+                    case 0:
+                        window.fxx = 1;
+                        window.sxx = 2;
+                        break;
+                    case 1:
+                        window.fxx = 1;
+                        window.sxx = 4;
+                        break;
+                    case 2:
+                        window.fxx = 3;
+                        window.sxx = 2;
+                        break;
+                    case 3:
+                        window.fxx = 3;
+                        window.sxx = 4;
+                        break;
+                }
+            }
+        }
+        function getmop() {
+            if (Math.floor(Math.random())) {
+                var fw = x1 * 100 + x1;
+                window.mop = Math.floor(Math.random() * fw);
+                while (mop == 0) {
+                    window.mop = Math.floor(Math.random() * fw);
+                }
+            } else {
+                var fw = x2 * 100 + x2;
+                window.mop = Math.floor(Math.random() * fw);
+                while (mop == 0) {
+                    window.mop = Math.floor(Math.random() * fw);
+                }
+            }
+            if (Math.floor(Math.random())) {
+                mop = -mop;
+            }
+            return mop;
+        }
+        function setcf() {
+            var tof = document.getElementById("sfsetc").checked;
+            if (tof) {
+                document.getElementById("setccbh").style.display = "none";
+                document.getElementById("setccarea").style.display = "block";
+            } else {
+                document.getElementById("setccbh").style.display = "block";
+                document.getElementById("setccarea").style.display = "none";
+            }
+        }
+        function setxf() {
+            var tof = document.getElementById("sfsetx").checked;
+            if (tof) {
+                document.getElementById("setxxbh").style.display = "none";
+                document.getElementById("setxxarea").style.display = "block";
+                document.getElementById("sanswer").style.display = "block";
+            } else {
+                document.getElementById("setxxbh").style.display = "block";
+                document.getElementById("setxxarea").style.display = "none";
+                document.getElementById("sanswer").style.display = "none";
+            }
+        }
+        function getan() {
+            var mlang = clang.value;
+            bx = document.getElementById("anx1").value;
+            sx = document.getElementById("anx2").value;
+            switch (mlang) {
+                case "jchinese":
+                    if (askx1[DQF] == "NaN") {
+                        infoboom("您抽风了？", "您确认个毛线团团。</p>");
+                    } else if (bx == askx1[DQF] && sx == askx2[DQF]) {
+                        infoboom("答案正确", "<p>您算对了，这就是正确答案。</p><p>聪慧而伟大的您简直可以载入史册了。</p>");
+                    } else if (bx == askx2[DQF] && sx == askx1[DQF]) {
+                        infoboom("答案正确", "<p>您算对了，这就是正确答案。</p><p>聪慧而伟大的您简直可以载入史册了。</p>");
+                    } else {
+                        infoboom("答案错误", "<p>很明显的，您算错了。</p><p>您太蒻了。</p>");
+                    }
+                    break;
+                case "fchinese":
+                    if (askx1[DQF] == "NaN") {
+                        infoboom("您抽風了？", "<p>確認？確認個屁啦。</p>");
+                    } else if (bx == askx1[DQF] && sx == askx2[DQF]) {
+                        infoboom("答案正確", "<p>您算對了，這就是正確答案。</p><p>聰慧而偉大的您簡直可以載入史冊了。</p>");
+                    } else if (bx == askx2[DQF] && sx == askx1[DQF]) {
+                        infoboom("答案正確", "<p>您算對了，這就是正確答案。</p><p>聰慧而偉大的您簡直可以載入史冊了。</p>");
+                    } else {
+                        infoboom("答案錯誤", "<p>很明顯的，您算錯了。</p><p>您很機車誒。</p>");
+                    }
+                    break;
+                case "english":
+                    if (askx1[DQF] == "NaN") {
+                        infoboom("Are you creazy?", "<p>What are you fucking submitted?</p>");
+                    } else if (bx == askx1[DQF] && sx == askx2[DQF]) {
+                        infoboom("The solutions are correct.", "<p>You are right. Those are the correct solutions.</p><p>You are so smart and great that you can go down in history.</p>");
+                    } else if (bx == askx2[DQF] && sx == askx1[DQF]) {
+                        infoboom("The solutions are correct.", "<p>You are right. Those are the correct solutions.</p><p>You are so smart and great that you can go down in history.</p>");
+                    } else {
+                        infoboom("Wrong solutions", "<p>You are wrong.</p><p>How silly the solutions are!</p>");
+                    }
+                    break;
+                case "japanese":
+                    if (askx1[DQF] == "NaN") {
+                        infoboom("您抽风了？", "您确认个毛线团团。");
+                    } else if (bx == askx1[DQF] && sx == askx2[DQF]) {
+                        infoboom("答案正确", "您算对了，这就是正确答案。<br />聪慧而伟大的您简直可以载入史册了。");
+                    } else if (bx == askx2[DQF] && sx == askx1[DQF]) {
+                        infoboom("答案正确", "您算对了，这就是正确答案。<br />聪慧而伟大的您简直可以载入史册了。");
+                    } else {
+                        infoboom("答案错误", "很明显的，您算错了。<br />您太蒻了。");
+                    }
+                    break;
+                case "marslang":
+                    if (askx1[DQF] == "NaN") {
+                        infoboom("您抽风了？", "您确认个毛线团团。");
+                    } else if (bx == askx1[DQF] && sx == askx2[DQF]) {
+                        infoboom("答案正确", "您算对了，这就是正确答案。<br />聪慧而伟大的您简直可以载入史册了。");
+                    } else if (bx == askx2[DQF] && sx == askx1[DQF]) {
+                        infoboom("答案正确", "您算对了，这就是正确答案。<br />聪慧而伟大的您简直可以载入史册了。");
+                    } else {
+                        infoboom("答案错误", "很明显的，您算错了。<br />您太蒻了。");
+                    }
+                    break;
+            }
+
+        }
+        function ccpirastartchc() {
+            window.ccpirastartsr = ccpirastartsr + ccpirastartdr
+            window.ccpirastartsg = ccpirastartsg + ccpirastartdg
+            window.ccpirastartsb = ccpirastartsb + ccpirastartdb
+            window.ccpirastarttr = Math.round(ccpirastartsr)
+            window.ccpirastarttg = Math.round(ccpirastartsg)
+            window.ccpirastarttb = Math.round(ccpirastartsb)
+            fccpirastarttr = 255 - ccpirastarttr;
+            fccpirastarttg = 255 - ccpirastarttg;
+            fccpirastarttb = 255 - ccpirastarttb;
+            document.getElementById("ctstart").style.background = "rgb(" + fccpirastarttr + "," + fccpirastarttg + "," + fccpirastarttb + ")";
+            document.getElementById("ctstart").style.color = "rgb(" + ccpirastarttr + "," + ccpirastarttg + "," + ccpirastarttb + ")";
+            if (ccpirastarttr == ccpirastartra) {
+                window.ccpirastartra = Math.floor(Math.random() * 256);
+                window.ccpirastartdr = (ccpirastartra - ccpirastartsr) / (Math.floor(Math.random() * 400) + 100);
+            }
+            if (ccpirastarttg == ccpirastartga) {
+                window.ccpirastartga = Math.floor(Math.random() * 256);
+                window.ccpirastartdg = (ccpirastartga - ccpirastartsg) / (Math.floor(Math.random() * 400) + 100);
+            }
+            if (ccpirastarttb == ccpirastartba) {
+                window.ccpirastartba = Math.floor(Math.random() * 256);
+                window.ccpirastartdb = (ccpirastartba - ccpirastartsb) / (Math.floor(Math.random() * 400) + 100);
+            }
+        }
+        function clean() {
+            leftheight = document.getElementById("left" + DQF).clientHeight;
+            rightheight = document.getElementById("right" + DQF).clientHeight;
+            sdheight = document.getElementById("sd").clientHeight;
+            mainheight = document.getElementById("main").clientHeight;
+            document.getElementById("left" + DQF).style.transform = "translateY(-" + leftheight / 2 + "px)";
+            document.getElementById("right" + DQF).style.transform = "translateY(-" + rightheight / 2 + "px)";
+            document.getElementById("sd").style.transform = "translateY(-" + sdheight / 2 + "px)";
+            document.getElementById("main").style.transform = "translateY(-" + mainheight / 2 + "px)";
+            lwidth = document.getElementById("left" + DQF).clientWidth;
+            rwidth = document.getElementById("right" + DQF).clientWidth;
+            dwidth = document.getElementById("d").clientWidth;
+            h = lwidth + rwidth + dwidth;
+            sfxh = 1;
+            while (sfxh) {
+                lwidth = document.getElementById("left" + DQF).clientWidth;
+                rwidth = document.getElementById("right" + DQF).clientWidth;
+                dwidth = document.getElementById("d").clientWidth;
+                h1 = lwidth + rwidth + dwidth + 5;
+                if (h1 == h) {
+                    sfxh = 0;
+                } else {
+                    h = h1;
+                }
+                s = dwidth + lwidth;
+                document.getElementById("d").style.left = lwidth + "px";
+                document.getElementById("bright").style.left = s + "px";
+                document.getElementById("main").style.width = h + "px";
+            }
+            if (h >= document.getElementById("bmain").clientWidth) {
+                document.getElementById("main").style.marginLeft = "";
+                document.getElementById("main").style.left = "0px";
+            } else {
+                document.getElementById("main").style.left = "50%";
+                document.getElementById("main").style.marginLeft = "-" + h / 2 + "px";
+            }
+            sfxh = 1;
+            lwidth = document.getElementById("left" + DQF).clientHeight;
+            rwidth = document.getElementById("right" + DQF).clientHeight;
+            if (lwidth => rwidth) {
+                h = lwidth;
+                sh = rwidth;
+            } else {
+                h = rwidth;
+                sh = lwidth;
+            }
+            document.getElementById("main").style.height = h + "px";
+            if (h >= document.getElementById("bmain").clientHeight) {
+                document.getElementById("main").style.transform = "";
+                document.getElementById("main").style.top = "0px";
+            } else {
+                document.getElementById("main").style.top = "50%";
+                document.getElementById("main").style.transform = "translateY(-" + h / 2 + "px)";
+            }
+            var names = document.getElementsByName("smain");
+            /*for(var i=0; i< names.length; i++){
+                var smainh=names[i].clientHeight
+                names[i].style.transform = "translateY("+smainh/2+"px)";
+                names[i].style.bottom = "50%"
+            }*/
+        }
+        function cready() {
+            window.ccpirastartsr = Math.floor(Math.random() * 256)
+            window.ccpirastartsg = Math.floor(Math.random() * 256)
+            window.ccpirastartsb = Math.floor(Math.random() * 256)
+            window.ccpirastartra = Math.floor(Math.random() * 256)
+            window.ccpirastartdr = (ccpirastartra - ccpirastartsr) / (Math.floor(Math.random() * 100) + 30)
+            window.ccpirastartga = Math.floor(Math.random() * 256)
+            window.ccpirastartdg = (ccpirastartga - ccpirastartsg) / (Math.floor(Math.random() * 100) + 30)
+            window.ccpirastartba = Math.floor(Math.random() * 256)
+            window.ccpirastartdb = (ccpirastartba - ccpirastartsb) / (Math.floor(Math.random() * 100) + 30)
+        }
+        function fold(n) {
+            if (hmfold[n]) {
+                document.getElementById(n).style.display = "none";
+                hmfold[n] = 0;
+            } else {
+                document.getElementById(n).style.display = "inline";
+                hmfold[n] = 1;
+            }
+        }
+        function unfold(n) {
+            document.getElementById(n).style.display = "none";
+            hmfold[n] = 0;
+        }
+        function HAS() {
+            if (bHAS) {
+                bHAS = 0;
+                document.getElementById("h1as").style.display = "block";
+                document.getElementById("smenu").style.display = "none";
+                document.getElementById("answer").style.display = "none";
+                document.getElementById("ccpiralogo").style.display = "none";
+            } else {
+                bHAS = 1;
+                document.getElementById("h1as").style.display = "none";
+                document.getElementById("smenu").style.display = "block";
+                document.getElementById("answer").style.display = "block";
+                document.getElementById("ccpiralogo").style.display = "block";
+            }
+        }
+        function blackday() {
+            var bblackday = document.getElementById("iBD").checked;
+            var namesf = document.getElementsByName("fieldset");
+            var namesb = document.getElementsByName("foldb");
+            var namest = document.getElementsByName("foldbt");
+            var namesi = document.getElementsByName("inputn");
+            var namesl = document.getElementsByName("legend");
+            if (bblackday) {
+                fav.href = "../white-favicon.ico";
+                document.body.style.background = "#ffffff";
+                document.body.style.color = "#000000";
+                sinfo.style.background = "#ffffff";
+                sinfo.style.color = "#000000";
+                for (var i = 0; i < namesf.length; i++) {
+                    namesf[i].style.borderColor = "#000000";
+                }
+                for (var i = 0; i < namesb.length; i++) {
+                    namesb[i].style.background = "aqua";
+                    namesb[i].style.borderColor = "#000000";
+                }
+                for (var i = 0; i < namest.length; i++) {
+                    namest[i].style.color = "aqua";
+                    namest[i].style.background = "#444444";
+                    namest[i].style.borderColor = "aqua";
+                }
+                for (var i = 0; i < namesi.length; i++) {
+                    namesi[i].style.color = "aqua";
+                    namesi[i].style.borderColor = "aqua";
+                }
+                for (var i = 0; i < namesl.length; i++) {
+                    namesl[i].style.color = "#000000"
+                }
+                document.getElementById("sclogo").style.color = "#000000";
+                window.chct1 = setInterval(ccpirastartchc, 40);
+                ccpiralogopic.src = "data:image/png;base64,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";
+                ccpiralogofont.style.background = "#000000";
+                ccpiralogofont.style.color = "#ffffff";
+                ccpiralogoccpira.style.color = "#09a2e6"
+            } else {
+                fav.href = "../black-favicon.ico";
+                document.body.style.background = "#333333";
+                document.body.style.color = "#ffffff";
+                sinfo.style.background = "#333333";
+                sinfo.style.color = "#ffffff";
+                window.clearInterval(chct1);
+                for (var i = 0; i < namesf.length; i++) {
+                    namesf[i].style.borderColor = "#ffffff";
+                }
+                for (var i = 0; i < namesb.length; i++) {
+                    namesb[i].style.background = "#ffffff";
+                    namesb[i].style.borderColor = "#ffffff";
+                }
+                for (var i = 0; i < namest.length; i++) {
+                    namest[i].style.color = "#dddd00";
+                    namest[i].style.borderColor = "#ffffff";
+                    namest[i].style.background = "#444444";
+                }
+                for (var i = 0; i < namesi.length; i++) {
+                    namesi[i].style.color = "#dddd00";
+                    namesi[i].style.borderColor = "#ffffff";
+                }
+                for (var i = 0; i < namesl.length; i++) {
+                    namesl[i].style.color = "#ffffff"
+                }
+                document.getElementById("sclogo").style.color = "#dddd00";
+                ccpiralogopic.src = "data:image/png;base64,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";
+                ccpiralogofont.style.background = "#ffffff";
+                ccpiralogofont.style.color = "#000000";
+                ccpiralogoccpira.style.color = "#ffffff"
+            }
+        }
+        function checkf() {
+            document.getElementById("left" + hmx1x2).style.display = "none";
+            document.getElementById("right" + hmx1x2).style.display = "none";
+            document.getElementById("left" + needx[hneedx]).style.display = "none";
+            document.getElementById("right" + needx[hneedx]).style.display = "none";
+            hneedx++;
+            needx[hneedx] = document.getElementById("thmx1x2").value;
+            DQF = needx[hneedx];
+            if (!document.getElementById("right" + needx[hneedx]) || !document.getElementById("left" + needx[hneedx]) || !document.getElementById("ready" + needx[hneedx])) {
+                var divl = document.createElement("div");
+                var divr = document.createElement("div");
+                var divy = document.createElement("div");
+                divl.id = "left" + needx[hneedx];
+                divr.id = "right" + needx[hneedx];
+                divy.id = "ready" + needx[hneedx];
+                divl.className = "left";
+                divr.className = "right";
+                divy.className = "ready";
+                divl.innerHTML = "<h1>NaN</h1>";
+                divr.innerHTML = "<h1>NaN</h1>";
+                divy.innerHTML = "<div id=\"ready0-0\" class=\"sready\"><h1>啥都没有</h1></div>";
+                document.getElementById("bleft").appendChild(divl);
+                document.getElementById("bright").appendChild(divr);
+                document.getElementById("bready").appendChild(divy);
+                askx1[DQF] = "NaN";
+                askx2[DQF] = "NaN";
+            }
+            document.getElementById("left" + needx[hneedx]).style.display = "inline-block";
+            document.getElementById("right" + needx[hneedx]).style.display = "inline-block";
+            clean();
+        }
+        function flook() {
+            var bilook = document.getElementById("ilook").checked;
+            if (bilook) {
+                document.getElementById("ready" + hmx1x2).style.display = "none";
+                document.getElementById("ready" + needx[hneedx]).style.display = "none";
+                document.getElementById("main").style.display = "none";
+                document.getElementById("bready").style.display = "block";
+                document.getElementById("ready" + DQF).style.display = "block";
+            } else {
+                document.getElementById("ready" + hmx1x2).style.display = "none";
+                document.getElementById("ready" + needx[hneedx]).style.display = "none";
+                document.getElementById("main").style.display = "block";
+                document.getElementById("bready").style.display = "none";
+                document.getElementById("ready" + DQF).style.display = "none";
+            }
+            clean()
+        }
+        function lookx1x2() {
+            var mlang = clang.value;
+            switch (mlang) {
+                case "jchinese":
+                    if (askx1[DQF] == "NaN") {
+                        infoboom("哈？", "<p>你认为这个式子有解吗？</p>")
+                    } else {
+                        infoboom("此方程（生成的第 " + DQF + " 个方程）的解", "<p>X1 = " + infoof[DQF]["x1"] + "</p><p>X2 = " + infoof[DQF]["x2"] + "</p><p>变换次数为 " + infoof[DQF]["fzd"] + "</p><p>变换复杂度依次为 " + infoof[DQF]["ycs"] + "</p>");
+                    }
+                    break;
+                case "fchinese":
+                    if (askx1[DQF] == "NaN") {
+                        infoboom("哈？", "<p>你認為這個式子有解嗎？</p>")
+                    } else {
+                        infoboom("此方程（生成的第 " + DQF + " 個方程）的解", "<p>X1 = " + infoof[DQF]["x1"] + "</p><p>X2 = " + infoof[DQF]["x2"] + "</p><p>變換次數為 " + infoof[DQF]["fzd"] + "</p><p>變換複雜度依次為 " + infoof[DQF]["ycs"] + "</p>");
+                    }
+                    break;
+                case "japanese":
+                    if (askx1[DQF] == "NaN") {
+                        infoboom("哈？", "<p>你认为这个式子有解吗？</p>")
+                    } else {
+                        infoboom("此方程（生成的第 " + DQF + " 个方程）的解", "<p>X1 = " + infoof[DQF]["x1"] + "</p><p>X2 = " + infoof[DQF]["x2"] + "</p><p>变换次数为 " + infoof[DQF]["fzd"] + "</p><p>变换复杂度依次为 " + infoof[DQF]["ycs"] + "</p>");
+                    }
+                    break;
+                case "english":
+                    if (askx1[DQF] == "NaN") {
+                        infoboom("What？", "<p>It's not even an equation, is it?</p>")
+                    } else {
+                        infoboom("The solutions of this equation(NO. " + DQF + "):", "<p>X1 = " + infoof[DQF]["x1"] + "</p><p>X2 = " + infoof[DQF]["x2"] + "</p><p> The conversion-time is " + infoof[DQF]["fzd"] + "</p><p>The complexity are" + infoof[DQF]["ycs"] + "</p>");
+                    }
+                    break;
+                case "marslang":
+                    if (askx1[DQF] == "NaN") {
+                        infoboom("哈？", "<p>你认为这个式子有解吗？</p>")
+                    } else {
+                        infoboom("此方程（生成的第 " + DQF + " 个方程）的解", "<p>X1 = " + infoof[DQF]["x1"] + "</p><p>X2 = " + infoof[DQF]["x2"] + "</p><p>变换复杂度为 " + infoof[DQF]["fzd"] + "</p><p>依次为 " + infoof[DQF]["ycs"] + "</p>");
+                    }
+                    break;
+            }
+        }
+        function maxsf() {
+            var bens = document.getElementById("maxs");
+            var l1s = document.getElementById("rans");
+            var l2s = document.getElementById("mins");
+            if (XZs(bens, l1s, l2s)) {
+                HTXs = "max"
+            }
+        }
+        function ransf() {
+            var l1s = document.getElementById("maxs");
+            var bens = document.getElementById("rans");
+            var l2s = document.getElementById("mins");
+            if (XZs(bens, l1s, l2s)) {
+                HTXs = "ran"
+            }
+        }
+        function minsf() {
+            var l2s = document.getElementById("maxs");
+            var l1s = document.getElementById("rans");
+            var bens = document.getElementById("mins");
+            if (XZs(bens, l1s, l2s)) {
+                HTXs = "min"
+            }
+        }
+        function XZs(ben, l1, l2) {
+            if (ben.checked) {
+                l1.checked = 0;
+                l2.checked = 0;
+                return 1;
+            } else if (l1.checked || l2.checked) {
+                return 0;
+            } else {
+                ben.checked = 1;
+                return 1;
+            }
+        }
+        function changelang() {
+            var mlang = clang.value;
+            switch (mlang) {
+                case "jchinese":
+                    lang1.innerHTML = "不会使用？";
+                    lang2.innerHTML = "使用指南";
+                    lang2.style.right = "0";
+                    lang2.style.position = "absolute";
+                    lang3.innerHTML = "觉得程序还不错？";
+                    lang4.innerHTML = "给我们钱";
+                    lang4.style.right = "0";
+                    lang4.style.position = "absolute";
+                    lang5.innerHTML = "想了解更多？";
+                    lang6.innerHTML = "关于程序";
+                    lang6.style.right = "0";
+                    lang6.style.position = "absolute";
+                    lang2.style.width = "";
+                    lang4.style.width = "";
+                    lang6.style.width = "";
+                    lang2.style.left = "";
+                    lang4.style.left = "";
+                    lang6.style.left = "";
+                    lang2.style.margin = "";
+                    lang4.style.margin = "";
+                    lang6.style.margin = "";
+                    document.getElementsByName("byydair")[0].style.display = "block";
+                    document.getElementsByName("byydair")[1].style.display = "block";
+                    document.getElementsByName("byydnb")[0].style.display = "inline";
+                    document.getElementsByName("byydnb")[1].style.display = "inline";
+                    document.getElementsByName("byydnb")[2].style.display = "inline";
+                    lang7.innerHTML = "有任何问题请联系";
+                    lang8.innerHTML = "猜猜答案是多少";
+                    lang9.innerHTML = "确认答案";
+                    lang10.innerHTML = "揭晓答案";
+                    lang11.innerHTML = "显示功能菜单";
+                    lang12.innerHTML = "生成！";
+                    sclogo.innerHTML = "|简·陋|";
+                    lang13.innerHTML = "豪华方程生成器";
+                    sclogo.style.fontSize = "0.65cm";
+                    lang13.style.fontSize = "0.5cm";
+                    lang14.innerHTML = "版本:";
+                    lang15.innerHTML = "生成选项";
+                    lang16.innerHTML = "变换次数";
+                    lang17.innerHTML = "随机生成";
+                    lang18.innerHTML = "最少次数";
+                    lang19.innerHTML = "最多次数";
+                    lang20.innerHTML = "变换次数";
+                    lang21.innerHTML = "变换复杂度";
+                    lang22.innerHTML = "最大";
+                    lang23.innerHTML = "随机生成";
+                    lang24.innerHTML = "最小";
+                    lang25.innerHTML = "方程的解";
+                    lang26.innerHTML = "随机生成";
+                    lang27.innerHTML = "X最小值";
+                    lang28.innerHTML = "X最大值";
+                    lang29.innerHTML = "其他功能";
+                    lang30.innerHTML = "这是生成的第";
+                    lang31.innerHTML = "个方程";
+                    lang32.innerHTML = "显示";
+                    lang33.innerHTML = "隐藏功能菜单";
+                    lang34.innerHTML = "帮助";
+                    lang35.innerHTML = "浅色模式";
+                    lang36.innerHTML = "确定";
+                    ctstart.innerHTML = "生成！";
+                    break;
+                case "fchinese":
+                    lang1.innerHTML = "不會使用？";
+                    lang2.innerHTML = "使用指南";
+                    lang2.style.right = "0";
+                    lang2.style.position = "absolute";
+                    lang3.innerHTML = "覺得程序還不錯？";
+                    lang4.innerHTML = "給我們錢";
+                    lang4.style.right = "0";
+                    lang4.style.position = "absolute";
+                    lang5.innerHTML = "想了解更多？";
+                    lang6.innerHTML = "關於程序";
+                    lang6.style.right = "0";
+                    lang6.style.position = "absolute";
+                    lang2.style.width = "";
+                    lang4.style.width = "";
+                    lang6.style.width = "";
+                    lang2.style.left = "";
+                    lang4.style.left = "";
+                    lang6.style.left = "";
+                    lang2.style.margin = "";
+                    lang4.style.margin = "";
+                    lang6.style.margin = "";
+                    document.getElementsByName("byydair")[0].style.display = "block";
+                    document.getElementsByName("byydair")[1].style.display = "block";
+                    document.getElementsByName("byydnb")[0].style.display = "inline";
+                    document.getElementsByName("byydnb")[1].style.display = "inline";
+                    document.getElementsByName("byydnb")[2].style.display = "inline";
+                    lang7.innerHTML = "有任何問題請聯繫";
+                    lang8.innerHTML = "猜猜答案是多少";
+                    lang9.innerHTML = "確認答案";
+                    lang10.innerHTML = "揭曉答案";
+                    lang11.innerHTML = "顯示功能菜單";
+                    lang12.innerHTML = "生成！";
+                    sclogo.innerHTML = "|簡·陋|";
+                    lang13.innerHTML = "豪華方程生成器";
+                    sclogo.style.fontSize = "0.65cm";
+                    lang13.style.fontSize = "0.5cm";
+                    lang14.innerHTML = "版本:";
+                    lang15.innerHTML = "生成選項";
+                    lang16.innerHTML = "變換次數";
+                    lang17.innerHTML = "隨機生成";
+                    lang18.innerHTML = "最少次數";
+                    lang19.innerHTML = "最多次數";
+                    lang20.innerHTML = "變換次數";
+                    lang21.innerHTML = "變換複雜度";
+                    lang22.innerHTML = "最大";
+                    lang23.innerHTML = "隨機生成";
+                    lang24.innerHTML = "最小";
+                    lang25.innerHTML = "方程的解";
+                    lang26.innerHTML = "隨機生成";
+                    lang27.innerHTML = "X最小值";
+                    lang28.innerHTML = "X最大值";
+                    lang29.innerHTML = "其他功能";
+                    lang30.innerHTML = "這是生成的第";
+                    lang31.innerHTML = "個方程";
+                    lang32.innerHTML = "顯示";
+                    lang33.innerHTML = "隱藏功能菜單";
+                    lang34.innerHTML = "幫助";
+                    lang35.innerHTML = "淺色模式";
+                    lang36.innerHTML = "確定";
+                    ctstart.innerHTML = "生成！";
+                    break;
+                case "marslang":
+                    lang1.innerHTML = "钚会吏佣？";
+                    lang2.innerHTML = "吏佣☞♂";
+                    lang2.style.right = "0";
+                    lang2.style.position = "absolute";
+                    lang3.innerHTML = "孓锝×序丕钚剉？";
+                    lang4.innerHTML = "铪ΨΟ钔¥";
+                    lang4.style.right = "0";
+                    lang4.style.position = "absolute";
+                    lang5.innerHTML = "想辽姐哽㢁？";
+                    lang6.innerHTML = "固安予×序";
+                    lang6.style.right = "0";
+                    lang6.style.position = "absolute";
+                    lang2.style.width = "";
+                    lang4.style.width = "";
+                    lang6.style.width = "";
+                    lang2.style.left = "";
+                    lang4.style.left = "";
+                    lang6.style.left = "";
+                    lang2.style.margin = "";
+                    lang4.style.margin = "";
+                    lang6.style.margin = "";
+                    document.getElementsByName("byydair")[0].style.display = "block";
+                    document.getElementsByName("byydair")[1].style.display = "block";
+                    document.getElementsByName("byydnb")[0].style.display = "inline";
+                    document.getElementsByName("byydnb")[1].style.display = "inline";
+                    document.getElementsByName("byydnb")[2].style.display = "inline";
+                    lang7.innerHTML = "→亻∑刎梯题Q!∩g纞嘻";
+                    lang8.innerHTML = "犭青々荅案⑽㢁㇀|丶";
+                    lang9.innerHTML = "炔朲荅案";
+                    lang10.innerHTML = "JⅠé骁答案";
+                    lang11.innerHTML = "藓〒工力熊棌単";
+                    lang12.innerHTML = "笙誠！";
+                    sclogo.innerHTML = "|蕳·∟∅Ш|";
+                    lang13.innerHTML = "郝嬅☒×笙誠Q!";
+                    sclogo.style.fontSize = "0.65cm";
+                    lang13.style.fontSize = "0.5cm";
+                    lang14.innerHTML = "畈苯:";
+                    lang15.innerHTML = "笙誠癣蟓";
+                    lang16.innerHTML = "βÏɑːЙ嘩赐怵";
+                    lang17.innerHTML = "绥佶笙誠";
+                    lang18.innerHTML = "醉㇀|丶赐怵";
+                    lang19.innerHTML = "醉㢁赐怵";
+                    lang20.innerHTML = "卞ㅐǚΛη赐怵";
+                    lang21.innerHTML = "卞ㅐǚΛη腐匝度";
+                    lang22.innerHTML = "醉垯";
+                    lang23.innerHTML = "绥佶笙誠";
+                    lang24.innerHTML = "醉㇀|丶";
+                    lang25.innerHTML = "☒×の姐";
+                    lang26.innerHTML = "绥佶笙誠";
+                    lang27.innerHTML = "X醉㇀|丶☞";
+                    lang28.innerHTML = "X醉垯☞";
+                    lang29.innerHTML = "⒎塌工力熊";
+                    lang30.innerHTML = "ΖНё世笙誠の娣";
+                    lang31.innerHTML = "茖☒×";
+                    lang32.innerHTML = "藓〒";
+                    lang33.innerHTML = "隂臧工力熊棌単";
+                    lang34.innerHTML = "邦Ζ┠┨ㄩ";
+                    lang35.innerHTML = "潜渋МФ柿";
+                    lang36.innerHTML = "確腚";
+                    ctstart.innerHTML = "笙誠！";
+                    break;
+                case "english":
+                    lang1.innerHTML = "";
+                    lang2.innerHTML = "User guide";
+                    lang2.style.right = "";
+                    lang2.style.position = "absolute";
+                    lang3.innerHTML = "";
+                    lang4.innerHTML = "Support us";
+                    lang4.style.right = "";
+                    lang4.style.position = "absolute";
+                    lang5.innerHTML = "";
+                    lang6.innerHTML = "About the program";
+                    lang6.style.right = "";
+                    lang6.style.position = "absolute";
+                    lang2.style.width = "4cm";
+                    lang4.style.width = "4cm";
+                    lang6.style.width = "4cm";
+                    lang2.style.left = "50%";
+                    lang4.style.left = "50%";
+                    lang6.style.left = "50%";
+                    lang2.style.marginLeft = "-2cm";
+                    lang4.style.marginLeft = "-2cm";
+                    lang6.style.marginLeft = "-2cm";
+                    lang2.style.marginTop = "-0.4cm";
+                    lang4.style.marginTop = "-0.4cm";
+                    lang6.style.marginTop = "-0.4cm";
+                    document.getElementsByName("byydair")[0].style.display = "none";
+                    document.getElementsByName("byydair")[1].style.display = "none";
+                    document.getElementsByName("byydnb")[0].style.display = "none";
+                    document.getElementsByName("byydnb")[1].style.display = "none";
+                    document.getElementsByName("byydnb")[2].style.display = "none";
+                    lang7.innerHTML = "Customer service";
+                    lang8.innerHTML = "What solutions are?";
+                    lang9.innerHTML = "Submit solutions";
+                    lang10.innerHTML = "I don't know";
+                    lang11.innerHTML = "Display the menu";
+                    lang12.innerHTML = "Generate!";
+                    sclogo.innerHTML = "S.C.";
+                    lang13.innerHTML = "Equation Generator";
+                    sclogo.style.fontSize = "0.88cm";
+                    lang13.style.fontSize = "0.45cm";
+                    lang14.innerHTML = "Edition:";
+                    lang15.innerHTML = "How to generate";
+                    lang16.innerHTML = "Conversion times";
+                    lang17.innerHTML = "Random";
+                    lang18.innerHTML = "Min times";
+                    lang19.innerHTML = "Max times";
+                    lang20.innerHTML = "Conversion times";
+                    lang21.innerHTML = "Complexity";
+                    lang22.innerHTML = "Max";
+                    lang23.innerHTML = "Random";
+                    lang24.innerHTML = "Min";
+                    lang25.innerHTML = "Solutions";
+                    lang26.innerHTML = "Random";
+                    lang27.innerHTML = "Minimum X";
+                    lang28.innerHTML = "Maximum X";
+                    lang29.innerHTML = "Other settings";
+                    lang30.innerHTML = "This is NO.";
+                    lang31.innerHTML = "";
+                    lang32.innerHTML = "Display";
+                    lang33.innerHTML = "Hide the menu";
+                    lang34.innerHTML = "Help";
+                    lang35.innerHTML = "Light style";
+                    lang36.innerHTML = "OK";
+                    ctstart.innerHTML = "Generate!";
+                    break;
+                case "japanese":
+                    lang1.innerHTML = "不会使用？";
+                    lang2.innerHTML = "使用指南";
+                    lang2.style.right = "0";
+                    lang2.style.position = "absolute";
+                    lang3.innerHTML = "觉得程序还不错？";
+                    lang4.innerHTML = "给我们钱";
+                    lang4.style.right = "0";
+                    lang4.style.position = "absolute";
+                    lang5.innerHTML = "想了解更多？";
+                    lang6.innerHTML = "关于程序";
+                    lang6.style.right = "0";
+                    lang6.style.position = "absolute";
+                    lang2.style.width = "";
+                    lang4.style.width = "";
+                    lang6.style.width = "";
+                    lang2.style.left = "";
+                    lang4.style.left = "";
+                    lang6.style.left = "";
+                    lang2.style.margin = "";
+                    lang4.style.margin = "";
+                    lang6.style.margin = "";
+                    document.getElementsByName("byydair")[0].style.display = "block";
+                    document.getElementsByName("byydair")[1].style.display = "block";
+                    document.getElementsByName("byydnb")[0].style.display = "inline";
+                    document.getElementsByName("byydnb")[1].style.display = "inline";
+                    document.getElementsByName("byydnb")[2].style.display = "inline";
+                    lang7.innerHTML = "有任何问题请联系";
+                    lang8.innerHTML = "猜猜答案是多少";
+                    lang9.innerHTML = "确认答案";
+                    lang10.innerHTML = "揭晓答案";
+                    lang11.innerHTML = "显示功能菜单";
+                    lang12.innerHTML = "生成！";
+                    sclogo.innerHTML = "|简·陋|";
+                    lang13.innerHTML = "豪华方程生成器";
+                    sclogo.style.fontSize = "0.65cm";
+                    lang13.style.fontSize = "0.5cm";
+                    lang14.innerHTML = "版本:";
+                    lang15.innerHTML = "生成选项";
+                    lang16.innerHTML = "变换次数";
+                    lang17.innerHTML = "随机生成";
+                    lang18.innerHTML = "最少次数";
+                    lang19.innerHTML = "最多次数";
+                    lang20.innerHTML = "变换次数";
+                    lang21.innerHTML = "变换复杂度";
+                    lang22.innerHTML = "最大";
+                    lang23.innerHTML = "随机生成";
+                    lang24.innerHTML = "最小";
+                    lang25.innerHTML = "方程的解";
+                    lang26.innerHTML = "随机生成";
+                    lang27.innerHTML = "X最小值";
+                    lang28.innerHTML = "X最大值";
+                    lang29.innerHTML = "其他功能";
+                    lang30.innerHTML = "这是生成的第";
+                    lang31.innerHTML = "个方程";
+                    lang32.innerHTML = "显示";
+                    lang33.innerHTML = "隐藏功能菜单";
+                    lang34.innerHTML = "帮助";
+                    lang35.innerHTML = "浅色模式";
+                    lang36.innerHTML = "確定";
+                    ctstart.innerHTML = "生成！";
+                    break;
+            }
+        }
+        function infoboom(h, b) {
+            info.style.display = "block";
+            infoh.innerHTML = "<b>" + h + "</b>";
+            infob.innerHTML = b;
+        }
+        function uninfoboom() {
+            info.style.display = "none";
+        }
+        function load() {
+            infoof = new Array;
+            changelang();
+            hmx1x2 = 0;
+            hneedx = 0;
+            cready();
+            chct1 = setInterval(ccpirastartchc, 40);
+            hmfold = new Array;
+            askx1 = new Array;
+            askx2 = new Array;
+            needx = new Array;
+            DQF = 0;
+            askx1[DQF] = "NaN";
+            askx2[DQF] = "NaN";
+            needx[0] = 0;
+            bHAS = 1;
+            clean();
+            hmfold["rsanswer"] = 1;
+            hmfold["roset"] = 1;
+            hmfold["rset"] = 1;
+            hmfold["rsetcc"] = 1;
+            hmfold["rsetss"] = 1;
+            hmfold["rsetxx"] = 1;
+            hmfold["aboutlook"] = 1;
+            hmfold["help"] = 1;
+            fold("rsetss");
+            fold("rsetcc");
+            fold("rsetxx");
+            hrwidth = "100%";
+            HTXs = "ran"
+            ransf();
+            iBD.click();
+            seeedition.innerHTML = edition;
+        }
+        window.onload = function () {
+            load();
+        }
+    </script>
+    <style>
+        body {
+            font-family: Consolas, '微软雅黑', '黑体';
+            background-color: #ffffff;
+            height: 100%;
+        }
+
+        select {
+            background: #444444;
+            color: aqua;
+            border-width: 1px;
+            border-style: solid;
+            border-color: aqua;
+        }
+
+        fieldset {
+            padding-left: 0.3cm;
+            padding-right: 0.3cm;
+            padding-bottom: 0.4cm;
+            font-size: 0.4cm;
+            text-align: left;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #000000;
+            position: relative;
+        }
+
+        input {
+            background: #444444;
+            color: aqua;
+            border-width: 1px;
+            border-style: solid;
+            border-color: aqua;
+        }
+
+        button {
+            display: inline-block;
+            background: #444444;
+            color: aqua;
+            border-width: 1px;
+            border-style: solid;
+            border-color: aqua;
+        }
+
+        button:hover {
+            border-width: 2px;
+        }
+
+        button:hover .soset {
+            display: inline-block;
+            position: absolute;
+            right: 0.2cm;
+            font-size: 0.4cm;
+        }
+
+        button:active {
+            background: #444444;
+            border-width: 1px;
+        }
+
+        button:active .soset {
+            display: inline-block;
+            position: absolute;
+            right: 0.1cm;
+            font-size: 0.4cm;
+        }
+
+        .right,
+        .left,
+        #sd {
+            text-align: center;
+            display: inline-block;
+            width: auto;
+            position: relative;
+            top: 50%;
+        }
+
+        .right div {
+            text-align: center;
+            display: inline-block;
+            font-size: 0.3cm;
+            padding-left: 1px;
+            padding-right: 1px;
+            position: relative;
+        }
+
+        .left div {
+            text-align: center;
+            display: inline-block;
+            font-size: 0.3cm;
+            padding-left: 1px;
+            padding-right: 1px;
+            position: relative;
+        }
+
+        .mathinput {
+            width: 2.4cm;
+        }
+
+        .ready {
+            position: relative;
+            top: 50%;
+            font-size: 0.4cm;
+            display: none;
+        }
+
+        .sready {
+            display: block;
+        }
+
+        .air {
+            height: 0.1cm;
+            font-size: 0.1cm;
+        }
+
+        .tzset {
+            position: absolute;
+            left: 110%;
+            top: 0px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #000000;
+            padding: 0.2cm;
+            width: 6.5cm;
+        }
+
+        .soset {
+            display: inline-block;
+            position: absolute;
+            right: 0.3cm;
+            font-size: 0.4cm;
+        }
+
+        .foldbutton {
+            width: 0.8cm;
+            height: 0.25cm;
+            font-size: 0.1cm;
+            text-align: center;
+            position: absolute;
+            bottom: -1px;
+            left: -1px;
+            padding-left: 1px;
+            padding-right: 1px;
+            background-color: aqua;
+            border-style: solid;
+            border-color: #000000;
+            border-width: 1px;
+        }
+
+        #set {
+            position: relative;
+        }
+
+        #setcc {
+            position: relative;
+        }
+
+        #setss {
+            position: relative;
+        }
+
+        #setxx {
+            position: relative;
+        }
+
+        #oset {
+            position: relative;
+        }
+
+        #setxxbh {
+            display: none;
+        }
+
+        #setccbh {
+            display: none;
+        }
+
+        #logo {
+            text-align: right;
+            font-size: 0.1cm;
+            padding-right: 0.2cm;
+        }
+
+        #bmain {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #menu {
+            user-select: none;
+            position: fixed;
+            top: 0.5cm;
+            left: 0.5cm;
+            width: 6cm;
+            text-align: center;
+        }
+
+        #main {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            text-align: center;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        #bright {
+            text-align: left;
+            display: inline-block;
+            position: absolute;
+            height: 100%;
+            white-space: normal;
+        }
+
+        #bleft {
+            text-align: right;
+            display: inline-block;
+            position: absolute;
+            left: 0px;
+            height: 100%;
+            white-space: normal;
+        }
+
+        #d {
+            text-align: center;
+            position: absolute;
+            top: 0px;
+            font-size: 1cm;
+            width: 3cm;
+            height: 100%;
+            display: inline-block;
+        }
+
+        #answer {
+            user-select: none;
+            position: fixed;
+            right: 0.5cm;
+            top: 0.5cm;
+            text-align: center;
+            width: 6cm;
+        }
+
+        #sanswer {
+            position: relative;
+        }
+
+        #bready {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            display: none;
+            text-align: center;
+        }
+
+        #info {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            display: none;
+            text-align: center;
+            z-index: 99999;
+        }
+
+        #binfo {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        #sinfo {
+            display: inline-block;
+            position: relative;
+            top: 50%;
+            padding: 1cm;
+            background: rgb(51, 51, 51);
+            margin-top: -50%;
+            border-width: 1px;
+            border-style: solid;
+            border-color: aqua;
+            text-align: center;
+        }
+
+        #infoh {
+            text-align: left;
+            font-size: 0.5cm;
+        }
+
+        #infob {
+            text-align: left;
+            font-size: 0.4cm;
+        }
+
+        #ccpiralogo {
+            user-select: none;
+            position: fixed;
+            right: 0.5cm;
+            bottom: 0.5cm;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body style="background: rgb(51, 51, 51); color: rgb(255, 255, 255);">
+    <div id="info">
+        <div id="binfo"></div>
+        <div id="sinfo" name="fieldset">
+            <div id="infoh"></div>
+            <div class="air"></div>
+            <div id="infob"></div>
+            <div class="air"></div>
+            <div class="air"></div>
+            <div class="air"></div>
+            <div class="air"></div>
+            <div id="infobu" style="height: 1cm;width: 100%;position: relative;">
+                <button onclick="uninfoboom()" id="lang36" name="foldbt" onmouseover="style.marginTop='-1px'"
+                    onmouseout="style.marginTop=''"
+                    style="display: inline-block; font-size: 0.4cm; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);width: 3cm;position: absolute;left: 50%;top: 0.2cm;margin-left: -1.5cm;">
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="bmain" onclick="unfold('rsetcc');unfold('rsetss');unfold('rsetxx');">
+        <div id="main" style="transform: translateY(0px); width: 224px; left: 50%; margin-left: -112px;">
+            <div id="bleft">
+                <div class="left" id="left0" style="transform: translateY(-40px);">
+                    <h1>NaN</h1>
+                </div>
+            </div>
+            <div id="d" style="left: 53px;">
+                <a id="sd" style="transform: translateY(-22px);">=</a>
+            </div>
+            <div id="bright" style="left: 166px;">
+                <div class="right" id="right0" style="transform: translateY(-40px);">
+                    <h1>NaN</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bready" onclick="unfold('rsetcc');unfold('rsetss');unfold('rsetxx');">
+        <div id="ready0" class="ready">
+            <div id="xr0-0" class="sready">
+                <h1>啥都没有</h1>
+            </div>
+            <div id="cr0-0" class="sready">
+                <h1>啥都没有</h1>
+            </div>
+        </div>
+    </div>
+    <div id="ccpiralogo">
+        <fieldset name="fieldset"
+            style="border-color: rgb(255, 255, 255);padding-bottom: 0cm;padding-left: 0.1cm;padding-top: 0cm;width: 7.8cm;">
+            <div class="air"></div>
+            <div class="air"></div>
+            <img style="width: 1.8cm;" id="ccpiralogopic"
+                src="data:image/png;base64,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">
+            <b style="font-size: 0.8cm; color: rgb(255, 255, 255);position: absolute;top: 0.2cm;left: 2cm;font-family: 'Vrinda';"
+                id="ccpiralogoccpira">CCPIRA</b>
+            <div style="background: #ffffff;color: #000000;font-size: 0.3cm;position: absolute;top: 1.1cm;left: 2cm;width: 5.8cm;height: 0.7cm;padding-left: 0.1cm;"
+                id="ccpiralogofont">中国计算机编程非正式研究协会</div>
+        </fieldset>
+    </div>
+    <div id="answer" onclick="unfold('rsetcc');unfold('rsetss');unfold('rsetxx');">
+        <fieldset name="fieldset" style="border-color: rgb(255, 255, 255);">
+            <div class="air"></div>
+            <legend name="legend" style="color: rgb(255, 255, 255);">
+                &nbsp;<a id="lang34">帮助</a>&nbsp;
+            </legend>
+            <div id="help">
+                <div style="width: 100%;position: relative;left: 0px;display: inline-block;text-align: center;">
+                    <a name="byydnb">&nbsp;</a>
+                    <a id="lang1" style="left: 0;text-align: left;position: absolute;width: 100%;">不会使用？</a>
+                    <button id="lang2" onclick="window.location.href='./help/'" title="也有作弊的方法" name="foldbt"
+                        style="display: inline-block; position: absolute; right: 0; font-size: 0.4cm; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);">
+                        使用指南
+                    </button>
+                </div>
+                <div class="air" name="byydair"></div>
+                <div class="air"></div>
+                <div style="width: 100%;position: relative;left: 0px;display: inline-block;text-align: center;">
+                    <a name="byydnb">&nbsp;</a>
+                    <a id="lang3" style="left: 0;text-align: left;position: absolute;width: 100%;">觉得程序还不错？</a>
+                    <button id="lang4" onclick="window.location.href='./support.html'" title="钱是第一生产力" name="foldbt"
+                        style="display: inline-block; position: absolute; right: 0; font-size: 0.4cm; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);">
+                        给我们钱
+                    </button>
+                </div>
+                <div class="air" name="byydair"></div>
+                <div class="air"></div>
+                <div style="width: 100%;position: relative;left: 0px;display: inline-block;text-align: center;">
+                    <a name="byydnb">&nbsp;</a>
+                    <a id="lang5" style="left: 0;text-align: left;position: absolute;width: 100%;">想了解更多？</a>
+                    <button id="lang6" onclick="window.location.href='./about/'" title="故事会" name="foldbt"
+                        style="display: inline-block; position: absolute; right: 0; font-size: 0.4cm; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);">
+                        关于程序
+                    </button>
+                </div>
+                <div class="air"></div>
+                <div class="air"></div>
+                <a id="lang7">有任何问题请联系</a><br />
+                QQ:<a class="soset">2507917746</a><br />
+                email:<a class="soset">ccpira@163.com</a>
+            </div>
+            <button onclick="fold('help')" class="foldbutton" name="foldb"
+                onmouseover="if(document.getElementById('iBD').checked) {style.background = '#00cccc'} else {style.background = '#bbbbbb'}"
+                onmouseout="if(document.getElementById('iBD').checked) {style.background = 'aqua'} else {style.background = '#ffffff'}"
+                style="background: rgb(255, 255, 255); border-color: rgb(255, 255, 255);"></button>
+        </fieldset>
+        <div class="air"></div>
+        <fieldset id="sanswer" name="fieldset" style="border-color: rgb(255, 255, 255);">
+            <legend name="legend" style="color: rgb(255, 255, 255);">
+                &nbsp;<a id="lang8">猜猜答案是多少</a>&nbsp;
+            </legend>
+            <div style="display: inline;" id="rsanswer">
+                <div class="air"></div>
+                <input name="inputn" class="mathinput" id="anx1"
+                    style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;X<sub>1</sub><br />
+                <div class="air"></div>
+                <input name="inputn" class="mathinput" id="anx2"
+                    style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;X<sub>2</sub><br />
+                <div class="air"></div>
+                <div class="air"></div>
+                <div class="air"></div>
+                <div style="width: 100%;text-align: center;">&nbsp;<button id="lang9" name="foldbt" onclick="getan()"
+                        style="width: 90%; display: inline; position: absolute; right: 5%; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);">确认答案</button>
+                </div>
+                <div class="air"></div>
+                &nbsp;<button id="lang10" onclick="lookx1x2()"
+                    style="height: 0.6cm; font-size: 0.3cm; position: absolute; right: 5%; margin-top: 0.1cm; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);"
+                    name="foldbt">揭晓答案</button>
+                <div class="air"></div>
+            </div>
+            <button onclick="fold('rsanswer')" class="foldbutton" name="foldb"
+                onmouseover="if(document.getElementById('iBD').checked) {style.background = '#00cccc'} else {style.background = '#bbbbbb'}"
+                onmouseout="if(document.getElementById('iBD').checked) {style.background = 'aqua'} else {style.background = '#ffffff'}"
+                style="background: rgb(255, 255, 255); border-color: rgb(255, 255, 255);"></button>
+        </fieldset>
+    </div>
+    <div id="menu">
+        <div id="h1as" style="display: none;text-align: left;">
+            &nbsp;&nbsp;<button id="lang11" onclick="HAS()" name="foldbt"
+                style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);"
+                onmouseover="lang12.style.marginTop='-1px'"
+                onmouseout="lang12.style.marginTop=''">显示功能菜单</button><br /><br />
+            &nbsp;&nbsp;<button id="lang12" onclick="getequation()" name="foldbt"
+                style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);">生成！</button>
+        </div>
+        <div id="smenu">
+            <fieldset id="logo" name="fieldset" style="border-color: rgb(255, 255, 255);">
+                <div class="air"></div>
+                <b style="font-size: 0.65cm; color: rgb(221, 221, 0);" id="sclogo">|简·陋|</b><br />
+                <a style="font-size: 0.5cm;" id="lang13">豪华方程生成器</a><br />
+                <a style="font-size: 0.32cm;" id="lang14">版本:</a><a id="seeedition">未知</a>
+            </fieldset>
+            <div class="air"></div>
+            <fieldset id="set" name="fieldset" style="border-color: rgb(255, 255, 255);">
+                <legend name="legend" style="color: rgb(255, 255, 255);">
+                    &nbsp;<a id="lang15">生成选项</a>&nbsp;
+                </legend>
+                <div style="display: inline;" id="rset">
+                    <div class="air"></div>
+                    &nbsp;<button id="setcc" name="foldbt" onclick="fold('rsetcc');unfold('rsetss');unfold('rsetxx');"
+                        style="position: absolute; width: 80%; text-align: left; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);">
+                        <a id="lang16">变换次数</a>
+                        <a class="soset">
+                            &gt;&gt;&gt;
+                        </a>
+                    </button>
+                    <fieldset style="display: none; border-color: rgb(255, 255, 255);" id="rsetcc" class="tzset"
+                        name="fieldset">
+                        <input name="inputn" id="sfsetc" onclick="setcf()" type="checkbox" checked=""
+                            style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                            id="lang17">随机生成</a>
+                        <div class="setcarea">
+                            <div class="air"></div>
+                            <div id="setccarea">
+                                <input name="inputn" class="mathinput" id="getminc" value="1"
+                                    style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                                    id="lang18">最少次数</a><br />
+                                <div class="air"></div>
+                                <input name="inputn" class="mathinput" id="getmaxc" value="7"
+                                    style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                                    id="lang19">最多次数</a>
+                            </div>
+                            <div id="setccbh">
+                                <input name="inputn" class="mathinput" id="setc"
+                                    style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                                    id="lang20">变换次数</a>
+                            </div>
+                        </div>
+                        <div class="air"></div>
+                    </fieldset>
+                    <div class="air"></div>
+                    <div class="air"></div>
+                    &nbsp;<button id="setss" name="foldbt" onclick="fold('rsetss');unfold('rsetxx');unfold('rsetcc');"
+                        style="position: absolute; width: 80%; text-align: left; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);">
+                        <a id="lang21">变换复杂度</a>
+                        <a class="soset">
+                            &gt;&gt;&gt;
+                        </a>
+                    </button>
+                    <fieldset style="display: none; border-color: rgb(255, 255, 255);" id="rsetss" class="tzset"
+                        name="fieldset">
+                        <input name="inputn" id="maxs" onclick="maxsf()" type="checkbox"
+                            style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                            id="lang22">最大</a>
+                        <div class="air">
+                        </div>
+                        <input name="inputn" id="rans" onclick="ransf()" type="checkbox" checked=""
+                            style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                            id="lang23">随机生成</a>
+                        <div class="air"></div>
+                        <input name="inputn" id="mins" onclick="minsf()" type="checkbox"
+                            style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                            id="lang24">最小</a>
+                        <div class="air">
+                        </div>
+                    </fieldset>
+                    <div class="air"></div>
+                    <div class="air"></div>
+                    &nbsp;<button id="setss" name="foldbt" onclick="fold('rsetxx');unfold('rsetss');unfold('rsetcc');"
+                        style="position: absolute; width: 80%; text-align: left; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);">
+                        <a id="lang25">方程的解</a>
+                        <a class="soset">
+                            &gt;&gt;&gt;
+                        </a>
+                    </button>
+                    <fieldset style="display: none; border-color: rgb(255, 255, 255);" id="rsetxx" class="tzset"
+                        name="fieldset">
+                        <input name="inputn" id="sfsetx" onclick="setxf()" type="checkbox" checked=""
+                            style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                            id="lang26">随机生成</a>
+                        <div class="setxarea">
+                            <div class="air"></div>
+                            <div id="setxxarea">
+                                <input name="inputn" class="mathinput" id="getminx" value="-50"
+                                    style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                                    id="lang27">X最小值</a><br />
+                                <div class="air"></div>
+                                <input name="inputn" class="mathinput" id="getmaxx" value="50"
+                                    style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                                    id="lang28">X最大值</a>
+                            </div>
+                            <div id="setxxbh">
+                                <input name="inputn" class="mathinput" id="setx1"
+                                    style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;X<sub>1</sub><br />
+                                <div class="air"></div>
+                                <input name="inputn" class="mathinput" id="setx2"
+                                    style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;X<sub>2</sub>
+                            </div>
+                        </div>
+                        <div class="air"></div>
+                    </fieldset>
+                    <div class="air"></div>
+                    <div class="air"></div>
+                </div>
+                <button onclick="fold('rset')" class="foldbutton" name="foldb"
+                    onmouseover="if(document.getElementById('iBD').checked) {style.background = '#00cccc'} else {style.background = '#bbbbbb'}"
+                    onmouseout="if(document.getElementById('iBD').checked) {style.background = 'aqua'} else {style.background = '#ffffff'}"
+                    style="background: rgb(255, 255, 255); border-color: rgb(255, 255, 255);"></button>
+            </fieldset>
+            <div class="air"></div>
+            <fieldset id="oset" name="fieldset" style="border-color: rgb(255, 255, 255);">
+                <legend name="legend" style="color: rgb(255, 255, 255);">
+                    &nbsp;<a id="lang29">其他功能</a>&nbsp;
+                </legend>
+                <div style="display: inline;" id="roset">
+                    <div class="air"></div>
+                    <a id="lang30">这是生成的第</a>&nbsp;<input name="inputn"
+                        style="width: 1cm; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);" id="thmx1x2"
+                        value="0" onfocus="changet1=setInterval(checkf,100)"
+                        onblur="window.clearInterval(changet1)">&nbsp;<a id="lang31">个方程</a>
+                    <div class="air"></div>
+                    <fieldset name="fieldset" style="border-color: rgb(255, 255, 255);">
+                        <legend name="legend" style="color: rgb(255, 255, 255);">
+                            &nbsp;<a id="lang32">显示</a>&nbsp;
+                        </legend>
+                        <div id="aboutlook">
+                            &nbsp;<button id="lang33" onclick="HAS()" name="foldbt"
+                                style="position: absolute; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);">隐藏功能菜单</button>
+                            <div class="air"></div>
+                            <div class="air"></div>
+                            <input name="inputn" id="iBD" onclick="blackday()" type="checkbox" checked=""
+                                style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);">&nbsp;<a
+                                id="lang35">浅色模式</a>
+                            <div class="air"></div>
+                            <!--<input name="inputn" id="ilook" onclick="flook()" type="checkbox" />&nbsp;显示所使用的等式>-->
+                        </div>
+                        <button onclick="fold('aboutlook')" class="foldbutton" name="foldb"
+                            onmouseover="if(document.getElementById('iBD').checked) {style.background = '#00cccc'} else {style.background = '#bbbbbb'}"
+                            onmouseout="if(document.getElementById('iBD').checked) {style.background = 'aqua'} else {style.background = '#ffffff'}"
+                            style="background: rgb(255, 255, 255); border-color: rgb(255, 255, 255);"></button>
+                    </fieldset>
+                    <div class="air"></div>
+                    <div class="air"></div>
+                    <fieldset name="fieldset" style="border-color: rgb(255, 255, 255);">
+                        <div style="position: relative;top: 50%;transform: translateY(30%);">
+                            LANGUAGE:
+                            <select name="inputn" style="color: rgb(221, 221, 0); border-color: rgb(255, 255, 255);"
+                                onchange="changelang()" id="clang">
+                                <option value="english">English</option>
+                                <option value="japanese">日本語</option>
+                                <option value="marslang">狄☆i吾</option>
+                                <option value="jchinese" selected>简体中文</option>
+                                <option value="fchinese">繁體中文</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <div class="air"></div>
+                </div>
+                <button onclick="fold('roset')" class="foldbutton" name="foldb"
+                    onmouseover="if(document.getElementById('iBD').checked) {style.background = '#00cccc'} else {style.background = '#bbbbbb'}"
+                    onmouseout="if(document.getElementById('iBD').checked) {style.background = 'aqua'} else {style.background = '#ffffff'}"
+                    style="background: rgb(255, 255, 255); border-color: rgb(255, 255, 255);"></button>
+            </fieldset>
+            <div class="air"></div>
+            <button onclick="getequation()" name="foldbt"
+                style="width: 100%; height: 0.8cm; font-size: 0.5cm; color: rgb(221, 221, 0); border-color: rgb(255, 255, 255); background: rgb(68, 68, 68);"
+                id="ctstart">生成！</button>
+        </div>
+    </div>
+</body>
+
+</html>
