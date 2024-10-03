@@ -8,9 +8,13 @@
                 font-size: 0.45cm;
                 font-family: '微软雅黑' ,'黑体';
                 height: 100%;
-                padding-left: 8cm;
                 text-align: center;
             }
+
+            small{
+                font-size: 0.3cm;
+            }
+
             .air{
                 height: 0.1cm;
                 font-size: 0.1cm;
@@ -127,6 +131,22 @@
                 padding: 0.2cm;
                 width: 80%;
             }
+
+            .eqc{
+                text-align: center;
+                display: inline-block;
+                padding-left: 1px;
+                padding-right: 1px;
+                position: relative;
+            }
+
+            .toc{
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                display: inline-block;
+            }
+
             #set {
                 position: relative;
             }
@@ -382,6 +402,10 @@
                     document.getElementById("colora").innerHTML="浅蓝色"
                     document.getElementById("colora").style.background="aqua"
                     document.getElementById("colora").style.color="#000"
+                    ccpiralogopic.src="data:image/png;base64,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";
+                    ccpiralogofont.style.background="#000000";
+                    ccpiralogofont.style.color="#ffffff";
+                    ccpiralogoccpira.style.color="#09a2e6"
                 } else {
                     document.body.style.background = "#333333";
                     document.body.style.color = "#ffffff";
@@ -415,6 +439,10 @@
                     document.getElementById("colora").innerHTML="白色"
                     document.getElementById("colora").style.background="#ffffff"
                     document.getElementById("colora").style.color="#000"
+                    ccpiralogopic.src="data:image/png;base64,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";
+                    ccpiralogofont.style.background="#ffffff";
+                    ccpiralogofont.style.color="#000000";
+                    ccpiralogoccpira.style.color="#ffffff";
                 }
             }
             function cready() {
@@ -452,7 +480,7 @@
     </head>
     <a href="../" id="sback"></a>
     <body>
-        <div style="border-style: solid;position: fixed;z-index:99999;bottom: 0.8cm;left: 0.5cm;" id="bbback">
+        <div style="border-style: solid;position: fixed;z-index:99999;bottom: 0.8cm;left: 0.5cm;display: none;" id="bbback">
             <div id="back">
                 <b style="font-size: 0.55cm;" id="sclogo2">|简·陋|</b><br />
                 <a style="font-size: 0.5cm;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;豪华方程生成器</a><br /><br />
@@ -504,9 +532,9 @@
                             <br /><br />
                             <div class="air"></div>
                             <div id="jaboutlook" style="display: inline-block;">
-                                <a style="position: relative;left: -6.6em;"><------------&nbsp;&nbsp;按这个按钮可以隐藏菜单。可使您看清整个方程。</a>
+                                <a style="position: relative;left: -3cm;"><------------&nbsp;&nbsp;按这个按钮可以隐藏菜单。可使您看清整个方程。</a>
                                 <div class="air"></div>
-                                <a style="position: relative;left: -6.6em;white-space: nowrap;"><------------&nbsp;&nbsp;按这个按钮可以改变页面配色，在晚上保证您眼睛的安全。</a>
+                                <a style="position: relative;left: -3cm;white-space: nowrap;"><------------&nbsp;&nbsp;按这个按钮可以改变页面配色，在晚上保证您眼睛的安全。</a>
                                 <br /><br />
                             </div>
                             <br />
@@ -641,10 +669,158 @@
                 <div onclick="unfold('rsetcc');unfold('rsetss');unfold('rsetxx');" style="display: inline-block;width: 100%;">
                     <h1>如何五秒钟求出解？</h1>
                     找到屏幕右面的"猜猜答案是多少"栏，最下面有一个小按钮叫"揭晓答案"，按一下就能知道解了。<br />或者你可以按下F12，然后打开控制台，里头会写x1和x2。<br />
-                    <small><small>五秒钟！</small></small>
-                    <br /><br /><hr /><br /><h1 style="display: inline;">此程序是如何生成方程的？</h1><br />
-                    这会在下一个版本写进来。
-                    <br /><br /><hr /><br /><div style="font-size: 0.6cm;">有任何问题请联系<br />QQ:<a class="soset" style="font-size: 0.6cm;">2507917746</a><br />email:<a class="soset" style="font-size: 0.6cm;">ccpira@163.com</a></div>
+                    <small>五秒钟！</small>
+                    <br /><h1 style="display: inline;">此程序是如何生成方程的？</h1><br />
+                    <h3 style="display: inline;">以及方程有没有漏洞？</h3><br /><br />
+                    这是个极好的问题！<br /><br />
+                    首先，到现在为止，我没发现任何漏洞。<br />
+                    <small>因为我根本没解过这些方程，我对尝试去解的人致以崇高的敬意</small><br /><br />
+                    这个程序分两步生成方程：
+                    <div class="list">1.生成毛坯方程<br /><br />
+                    2.变换方程</div>
+                    1.生成毛坯方程<br /><br />
+                    因为我最喜欢解可以因式分解的方程，所以我决定生成的方程最终能用因式分解法解出来。<br />
+                    例如下面这个：
+                    <div class="list">X<sup>2</sup>-3X+2=0</div>因式分解，得<div class="list">(X-2)(X-1)=0</div>因为一个数乘0等于0，所以(X-2)和(X-1)中必定有一个是0<br />可得<div class="list">X<small>1</small>=2<br />X<small>2</small>=1</div>
+                    我们可以找到其中的规律。如果二次项的系数a=1，那么一次项的系数b=-X<small>1</small>-X<small>2</small>，常数项c=|X<small>1</small>X<small>2</small>|。所以简陋的毛坯方程应该是长这个样子：
+                    <div class="list">
+                        <div class="eqc">
+                            <div class="eqc">
+                                1
+                                <hr />
+                                X<sup>2</sup>&nbsp;+&nbsp;(-X<sub>1</sub>-X<sub>2</sub>)X&nbsp;+&nbsp;|X<sub>1</sub>X<sub>2</sub>|
+                            </div>
+                            <div class="toc">&nbsp;=&nbsp;</div>
+                            <div class="eqc">
+                                1
+                                <hr />
+                                0
+                            </div>
+                        </div>
+                    </div>
+                    真是太蠢了，0不能作分母！我们可以随机增加常数项来防止这种事情的发生，其中"%random%"代表一个随机数（不为0，是(x1*101)到(x2*101)之间的数或者其相反数）：
+                    <div class="list">
+                        <div class="eqc">
+                            <div class="eqc">
+                                1
+                                <hr />
+                                X<sup>2</sup>&nbsp;+&nbsp;(-X<sub>1</sub>-X<sub>2</sub>)X&nbsp;+&nbsp;|X<sub>1</sub>X<sub>2</sub>|&nbsp;+&nbsp;%random%
+                            </div>
+                            <div class="toc">&nbsp;=&nbsp;</div>
+                            <div class="eqc">
+                                1
+                                <hr />
+                                %random%
+                            </div>
+                        </div>
+                    </div>
+                    好！我们现在有了一个简陋的毛坯方程。把变换次数设为0就可以生成这种毛坯方程。<br /><br /><br />
+                    2.变换方程<br /><br />
+                    目前来说，这个程序使用两种方法配合变换方程。<br />
+                    第一种是海星方程变换一式<small>因为太过抽象所以想不出好名字</small>，此方法使用了几个我们幼儿园就知道的定理：
+                    <div class="list">1.方程左右同时乘或除以一个相同的数（0除外），方程仍然成立；<br /><br />
+                    2.分子和分母同时乘或除以一个相同的数（0除外），分数的值不变。</div>
+                    下面请看演示：
+                    <div class="list">
+                        <div class="eqc">
+                            <div class="eqc">
+                                1
+                                <hr />
+                                X<sup>2</sup>
+                            </div>
+                            <div class="toc">&nbsp;=&nbsp;</div>
+                            <div class="eqc">
+                                1
+                                <hr />
+                                4
+                            </div>
+                        </div>
+                    </div>
+                    请看这个方程，您认为这个方程意味着什么呢？<br />
+                    没错！意味着1/(X<sup>2</sup>)和1/4是相等的！而且这个方程的解是X=±2。<br /><br />
+                    而且将此方程分成四个象限（左边分子，右边分子，左边分母，右边分母）后，我们发现从其中任选两个象限，
+                    有四种选择（1,2；1,4；2,3；3,4）可以使用上面那两个我们幼儿园就知道的定理，进行乘法或除法变换。<br /><br />
+                    那太好了，我们选1,2象限来变换一下试试：
+                    <div class="list">
+                        <div class="eqc">
+                            <div class="eqc">
+                                <div class="toc">1&nbsp;*&nbsp;</div>
+                                <div class="eqc">
+                                    1
+                                    <hr />
+                                    4
+                                </div>
+                                <hr />
+                                X<sup>2</sup>
+                            </div>
+                            <div class="toc">&nbsp;=&nbsp;</div>
+                            <div class="eqc">
+                                <div class="toc">1&nbsp;*&nbsp;</div>
+                                <div class="eqc">
+                                    1
+                                    <hr />
+                                    X<sup>2</sup>
+                                </div>
+                                <hr />
+                                4
+                            </div>
+                        </div>
+                        <br /><br />
+                        可得<br /><br />
+                        1=1
+                    </div>
+                    真是太荒唐了。这是个恒等式，我们把X约掉了。<br />
+                    看来X不能放在这里？这次我们换一下变换时插入的X的位置：
+                    <div class="list">
+                        <div class="eqc">
+                            <div class="eqc">
+                                <div class="toc">1&nbsp;*&nbsp;</div>
+                                <div class="eqc">
+                                    1
+                                    <hr />
+                                    X<sup>2</sup>
+                                </div>
+                                <hr />
+                                X<sup>2</sup>
+                            </div>
+                            <div class="toc">&nbsp;=&nbsp;</div>
+                            <div class="eqc">
+                                <div class="toc">1&nbsp;*&nbsp;</div>
+                                <div class="eqc">
+                                    1
+                                    <hr />
+                                    4
+                                </div>
+                                <hr />
+                                4
+                            </div>
+                        </div><br /><br />
+                        可得<br /><br />
+                        X=±2
+                    </div>
+                    成功了，这次X没被约掉，我们得到了正确的解。<br />
+                    相信您已经发现了，变换时插入的X的位置不同，得到的方程也不同。<br /><br />
+                    以上是两种情况的变换。根据计算，一共有十六种情况（四个象限组合；带X的项的位置；乘或除，4*2*2=16）。观察这十六个情况，可以总结出：
+                    <div class="list">
+                        1.方程可以被分成四个象限；<br /><br />
+                        2.四个象限共有4种组合变换方法；<br /><br />
+                        3.当原式除以插入的等式，插入的等式是方程自己时，带X的一项应放在原式中X所在的象限或其对角象限里，否则X会被约掉；<br /><br />
+                        4.当原式乘插入的等式，插入的等式是方程自己时，带X的一项应放在原式中X所在的象限旁边的两个象限里，否则X会被约掉。
+                    </div>
+                    这就是“海星方程变换一式”。<br /><br />
+                    相信您茅塞顿开，马上就想到了两秒钟找出原始方程的方法。没想到也没有关系。但我写了这句话就说明我也找到了。我肯定不会让人轻易就解出方程的。<br />
+                    我还有第二种方法：“混沌·神之胡乱构造之术”<small>起名也越来越混沌了</small>可以让方程变得更混乱。<br />
+                    <div class="list">
+                        1.通过+-*/四种运算，再来一点随机数，使用“海星方程变换一式”时插入的等式可以变得稍微复杂一点；<br /><br />
+                        2.通过对“稍微复杂了点的等式”使用“海星方程变换一式”和“混沌·神之胡乱构造之术”，可以让等式再复杂一点。
+                    </div>
+                    在使用“海星方程变换一式”前，先把插入的等式用“混沌·神之胡乱构造之术”弄得稍微复杂一点，再插入进方程里，就可以让方程更难解一点。
+                    <br /><br /><br /><div style="font-size: 0.6cm;">有任何问题请联系<br />QQ:<a class="soset" style="font-size: 0.6cm;">2507917746</a><br />email:<a class="soset" style="font-size: 0.6cm;">ccpira@163.com</a></div><br /><hr /><br />
+                    <div style="padding-bottom: 0cm;padding-left: 0.1cm;padding-top: 0cm;width: 7.8cm;position: relative;display: block;">
+                        <img style="width: 1.8cm;" id="ccpiralogopic" src="data:image/png;base64,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">
+                        <b style="font-size: 0.8cm; color: rgb(255, 255, 255);position: absolute;top: 0.2cm;left: 2cm;font-family: 'Vrinda';" id="ccpiralogoccpira">CCPIRA</b>
+                        <div style="background: #ffffff;color: #000000;font-size: 0.3cm;position: absolute;top: 1.1cm;left: 2cm;width: 5.8cm;height: 0.7cm;padding-left: 0.1cm;" id="ccpiralogofont">中国计算机编程非正式研究协会</div>
+                    </div><br /><br />
                 </div>
             </div>
         </div>
